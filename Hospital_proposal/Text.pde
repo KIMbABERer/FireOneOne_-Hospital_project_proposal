@@ -8,6 +8,7 @@ class Text {
      location = l.copy();
      size = random(2,8);  
      life = 255;
+     headline = json.getJSONObject("response").getJSONArray("docs").getJSONObject(articlesNum).getJSONObject("headline").getString("main");
   }
   
   void run() {
@@ -26,8 +27,9 @@ class Text {
      colorMode(RGB);
      fill(155,230,223,life);
      textAlign(CENTER);
+     rectMode(CENTER);  
      textSize(36);
-     text("Welcome to hospital", location.x, location.y);
+     text(headline, location.x, location.y,400,400);
   }
   
   boolean isDead() {

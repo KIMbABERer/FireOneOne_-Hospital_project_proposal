@@ -1,3 +1,7 @@
+// Credits
+//Seaweed by oggy https://www.openprocessing.org/sketch/154196
+//Daniel Shiffman "The Nature Of code"
+
 import processing.serial.*;
 import java.util.Iterator;
 
@@ -21,7 +25,8 @@ String val;     // Data received from the serial port
 String headline;
 JSONObject json;
 int disappear = 255;
-int newsLoop = 0;
+
+int articlesNum;
 
 void setup() {
   
@@ -49,13 +54,12 @@ void setup() {
   
   //New York Times API
   // The URL for the JSON data (replace "imperial" with "metric" for celsius)
-  //String apiKey = "efd1eeb4ed804181a722728fe068bacf";
-  //String url    = "http://api.nytimes.com/svc/search/v2/articlesearch.json";
-  //String query  = "?q=processing&sort=newest";
+  String apiKey = "efd1eeb4ed804181a722728fe068bacf";
+  String url    = "http://api.nytimes.com/svc/search/v2/articlesearch.json";
+  String query  = "?q=processing&sort=newest";
 
   // Load the XML document
-  //json = loadJSONObject(url+query+"&api-key="+apiKey);
-  //headline = json.getJSONObject("response").getJSONArray("docs").getJSONObject(newsLoop).getJSONObject("headline").getString("main");
+  json = loadJSONObject(url+query+"&api-key="+apiKey);
   
 }
 
